@@ -35,7 +35,7 @@ void requestEvent() {
     }
 
     if (request == ASK_FOR_DATA) {
-        if (requestIndex < (json.length() / 32)) {
+        if (requestIndex < (json.length() / I2C_LENGTH_LIMIT)) {
             Wire.write(json.c_str() + requestIndex * I2C_LENGTH_LIMIT, I2C_LENGTH_LIMIT);
             requestIndex++;
         }
